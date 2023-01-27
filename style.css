@@ -1,11 +1,30 @@
 * {
     box-sizing: border-box;
 }
+body{
+    background-color: gainsboro;
+}
 
+.title{
+    font-family: monospace;
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.description{
+    font-family: monospace;
+    font-size: 16px;
+}
+.webpage{
+    display: flex;
+    justify-content: center;
+}
 .container{
     display: grid;
-    justify-content: center;
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
 }
 
 .information{
@@ -15,7 +34,11 @@
 
 
 .pixel{
-    border: 1px solid black;
-    height: 25px;
-    width: 25px;
+
+    height: 1fr;
+    width: 1fr;
+}
+
+.clearBoard, .setDimensions{
+    margin-bottom: 10px;
 }

@@ -10,7 +10,8 @@ function createGrid(size){
         horizontal.classList.add('pixel');
         container.appendChild(horizontal);
     }
-    container.style.gridTemplateColumns = `repeat(${size}, 25px)`
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1r)`;
     const pixels = document.querySelectorAll('.pixel');
     pixels.forEach(pixel => pixel.addEventListener('mouseover', colorize));
 }
@@ -27,8 +28,8 @@ function colorize(e){
 }
 
 function setDimensions(){
-    let input = prompt('Enter a Number between 2-30 to set the length of your drawing pad!');
-    if(input >= 2 && input <=30){
+    let input = prompt('Enter a Number between 2-100 to set the length of your drawing pad!');
+    if(input >= 2 && input <=100){
         removeGrid();
         createGrid(input);
     }
@@ -44,11 +45,19 @@ function checkMouseUp(e){
     mouseDown = false;
 }
 
+function clearBoard(){
+    const pixels = document.querySelectorAll('.pixel');
+    pixels.forEach(pixel => pixel.style.backgroundColor = 'white');
+}
+
 createGrid(16);
 
 //Event Listeners
 const dimensionButton = document.querySelector('.setDimensions');
 dimensionButton.addEventListener('click', setDimensions);
+
+const clearButton = document.querySelector('.clearBoard');
+clearButton.addEventListener('click', clearBoard);
 
 container.addEventListener('mousedown', checkMouseDown);
 container.addEventListener('mouseup', checkMouseUp);
